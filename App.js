@@ -19,7 +19,7 @@ export default function App() {
   const [resultado, setResultado] = useState(0)
 
 
-  function Escolha(alcool1, gasolina1, result1){
+  function Escolha(){
 
     if(valorAlcool === '' || valorGasolina === ''){
       alert('Por valor Digite um valor correto!')
@@ -32,12 +32,12 @@ export default function App() {
     
     console.log(result)
     if(result === 0){
-      setResultado('Voce está a pé')
+      return setResultado('Voce está a pé')
     }
     else if(result > 0.7){      
-      setResultado('Compensa usar Gasolina')
+      return setResultado('Compensa usar Gasolina')
     }else{
-      setResultado('Compensa usar Álcool')
+      return setResultado('Compensa usar Álcool')
     } 
     setResultado(result)
     setValorAlcool('')
@@ -45,7 +45,7 @@ export default function App() {
     
   }
 
-  function abrilModal(){
+  function abrirModal(){
     setModalVisible(true)
   }
 
@@ -84,24 +84,24 @@ export default function App() {
         />                
       </View>
 
-      <TouchableOpacity style={styles.btn} onPress={abrilModal}>
+      <TouchableOpacity style={styles.btn} onPress={Escolha}>
         <Text style={styles.btnText}>Calcular</Text>
       </TouchableOpacity>
 
       <Text style={{fontSize: 30, color:'#FFF', marginTop: 20, textAlign: 'center'}}>{resultado}</Text>
+      <Text style={{fontSize: 15, color:'#FFF', marginTop: 10, textAlign: 'center'}}>{valorAlcool}</Text>
+      <Text style={{fontSize: 15, color:'#FFF', marginTop: 10, textAlign: 'center'}}>{valorGasolina}</Text>
 
 
-      <ModalResultado
-        style={styles.modal}
-        visible={modalVisible}
-        transparent={false}
-        escolha={Escolha(valorAlcool, valorGasolina, resultado)}
+       <ModalResultado
+        style={styles.modal}       
+        transparent={false}        
         alcool={valorAlcool}     
         gasolina={valorGasolina}
-        result={resultado}
+        result={String(resultado)}
         fechar={sairModal}
       />
-          
+           
       
     </SafeAreaView>
   );

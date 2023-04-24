@@ -3,8 +3,7 @@ import { StyleSheet, Text, View, Image, TouchableOpacity, Modal } from 'react-na
 
 export default function ModalResultado(props){
     return(
-        <Modal 
-            visible={props.modalVisible}
+        <Modal             
             animationType='slide'
             >
             <View style={styles.modal}>
@@ -13,13 +12,14 @@ export default function ModalResultado(props){
                 <Image
                     source={require('../image/gas.png')}
                 />
-                <Text  style={styles.title}>Compensa usar {props.result}</Text>                
+                {console.log(props.result)}
+                <Text  style={styles.title}>{props.result}</Text>                
             </View>
 
             <View style={styles.resultArea}>
                 <Text style={styles.titleResult} >Com os preços:</Text>
-                <Text style={styles.result}>Álcool: R$ {props.valorAlcool}</Text>
-                <Text style={styles.result}>Gasolina: R$ {props.valorGasolina}</Text>
+                <Text style={styles.result}>Álcool: R$ {props.alcool}</Text>
+                <Text style={styles.result}>Gasolina: R$ {props.gasolina}</Text>
             </View>
                 <TouchableOpacity
                     style={styles.btnArea}
@@ -29,7 +29,6 @@ export default function ModalResultado(props){
                 </TouchableOpacity>
             </View>
         </Modal>
-
     )
 }
 
