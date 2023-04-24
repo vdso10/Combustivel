@@ -13,13 +13,13 @@ export default function ModalResultado(props){
                 <Image
                     source={require('../image/gas.png')}
                 />
-                <Text  style={styles.title}>Compensa usar {props.escolha}</Text>                
+                <Text  style={styles.title}>Compensa usar {props.result}</Text>                
             </View>
 
             <View style={styles.resultArea}>
                 <Text style={styles.titleResult} >Com os preços:</Text>
-                <Text style={styles.result}>Álcool: R$ {props.alcool}</Text>
-                <Text style={styles.result}>Gasolina: R$ {props.gasolina}</Text>
+                <Text style={styles.result}>Álcool: R$ {props.valorAlcool}</Text>
+                <Text style={styles.result}>Gasolina: R$ {props.valorGasolina}</Text>
             </View>
                 <TouchableOpacity
                     style={styles.btnArea}

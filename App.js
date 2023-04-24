@@ -45,6 +45,10 @@ export default function App() {
     
   }
 
+  function abrilModal(){
+    setModalVisible(true)
+  }
+
   function sairModal(){
     setModalVisible(false)
   }
@@ -80,7 +84,7 @@ export default function App() {
         />                
       </View>
 
-      <TouchableOpacity style={styles.btn} onPress={() => setModalVisible(true)}>
+      <TouchableOpacity style={styles.btn} onPress={abrilModal}>
         <Text style={styles.btnText}>Calcular</Text>
       </TouchableOpacity>
 
@@ -89,11 +93,12 @@ export default function App() {
 
       <ModalResultado
         style={styles.modal}
-        transparent={false}
         visible={modalVisible}
-        
+        transparent={false}
+        escolha={Escolha(valorAlcool, valorGasolina, resultado)}
         alcool={valorAlcool}     
         gasolina={valorGasolina}
+        result={resultado}
         fechar={sairModal}
       />
           
